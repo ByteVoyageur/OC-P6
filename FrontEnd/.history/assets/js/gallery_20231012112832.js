@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
+  // Fetch the data from the API
   const apiEndpoint = 'http://localhost:5678/api/works'
   let data
 
@@ -6,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function () {
     .then((response) => response.json())
     .then((fetchedData) => {
       data = fetchedData
-      displayData(data)
+      displayData(data) // Display all data initially
 
       const buttons = document.querySelectorAll('#category-buttons button')
 
@@ -27,21 +28,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
   function displayData(filteredData) {
     const galleryDiv = document.querySelector('.gallery')
-    galleryDiv.innerHTML = ''
+    galleryDiv.innerHTML = '' // Clear existing content
     filteredData.forEach((item) => {
-      let figure = document.createElement('figure')
-
-      let img = document.createElement('img')
-      img.src = item.imageUrl
-      img.alt = item.title
-
-      let figcaption = document.createElement('figcaption')
-      figcaption.textContent = item.title
-
-      figure.appendChild(img)
-      figure.appendChild(figcaption)
-
-      galleryDiv.appendChild(figure)
+      // Create and append new DOM elements to display filtered data
+      // ...
     })
   }
 })

@@ -209,22 +209,21 @@ li:hover {
   display: flex;
   justify-content: center;
   margin-bottom: 2em;
-  gap: 15px;
+  gap: 20px;
 }
 
 #category-buttons button {
   padding: 10px 20px;
-  border: 1px solid #1d6154;
+  border: none;
   border-radius: 20px;
-  background-color: transparent;
+  background-color: #e6e6e6;
   cursor: pointer;
   transition: background-color 0.3s ease;
   color: #1d6154;
 }
 
 #category-buttons button:hover {
-  background-color: #1d6154;
-  color: white;
+  background-color: #cdcdcd;
 }
 
 #category-buttons button.active {
