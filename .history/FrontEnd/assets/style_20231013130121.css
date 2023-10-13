@@ -298,7 +298,7 @@ footer nav ul {
 
 /* Basic styles for the login section */
 #login-section {
-  position: relative;
+  position: relative; /* Changed from fixed to relative */
   width: 100%;
   padding: 20px;
 }

@@ -22,8 +22,7 @@
 			<ul>
 				<li>projets</li>
 				<li>contact</li>
-				<li><a href="./assets/pages/login.html">login</a></li>
-
+				<li>login</li>
 				<li><img src="./assets/icons/instagram.png" alt="Instagram"></li>
 			</ul>
 		</nav>
@@ -78,6 +77,31 @@
 			</ul>
 		</nav>
 	</footer>
+	<div class="overlay" id="loginOverlay">
+		<div class="login-box">
+			<div id="login-dialog" class="login-dialog-hidden">
+				<div class="login-dialog-content">
+					<h2>Login</h2>
+					<form id="login-form">
+						<div class="login-input-group">
+							<label for="username">Username:</label>
+							<input type="text" id="username" name="username" required>
+						</div>
+						<div class="login-input-group">
+							<label for="password">Password:</label>
+							<input type="password" id="password" name="password" required>
+						</div>
+						<div class="login-input-group">
+							<button type="submit">Login</button>
+						</div>
+					</form>
+					<button id="close-login-dialog">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
 </body>
 
 </html>
