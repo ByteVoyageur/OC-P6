@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function () {
       .then((data) => {
         if (data.token) {
           console.log('Logged in successfully', data.token)
-          localStorage.setItem('token', data.token)
+
           window.location.href = 'index.html'
         } else {
           console.error('Login error', data)

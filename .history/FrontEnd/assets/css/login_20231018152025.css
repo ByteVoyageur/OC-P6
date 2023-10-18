@@ -1,0 +1,65 @@
+/* Basic styles for the login section */
+#login-section {
+  position: relative;
+  width: 100%;
+  padding: 20px;
+}
+
+#login-section .login-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #ffffff;
+  border-radius: 8px;
+}
+
+#login-page-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.login-field-group {
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+  gap: 5px;
+}
+
+/* Input fields and button styles */
+#login-page-form input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+#login-page-form button {
+  padding: 10px 60px;
+  background-color: #1d6154;
+  color: #ffffff;
+  border: none;
+  border-radius: 60px;
+  cursor: pointer;
+  margin-bottom: 30px;
+}
+
+.wrapper {
+  position: relative;
+  min-height: calc(100vh - 50px);
+  margin-bottom: -50px;
+}
+
+.footer-push {
+  height: 50px;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 50px;
+}

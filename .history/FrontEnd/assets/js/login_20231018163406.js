@@ -1,6 +1,8 @@
 document.addEventListener('DOMContentLoaded', function () {
+  // Get the login form using its ID
   const loginForm = document.getElementById('login-page-form')
 
+  // Add an event listener for form submission
   loginForm.addEventListener('submit', function (event) {
     // Prevent the default form submission behavior
     event.preventDefault()
@@ -27,14 +29,14 @@ document.addEventListener('DOMContentLoaded', function () {
       .then((response) => response.json())
       .then((data) => {
         if (data.token) {
+          // If successful, store the authentication token (consider using cookies or local storage)
           console.log('Logged in successfully', data.token)
-          localStorage.setItem('token', data.token)
-          window.location.href = 'index.html'
+
+          // Redirect to the home page or dashboard
+          window.location.href = '/path-to-home-page' // Update the path as needed
         } else {
+          // Handle login error (e.g., show an error message to the user)
           console.error('Login error', data)
-          alert(
-            data.message || "Une erreur s'est produite lors de la connexion."
-          )
         }
       })
       .catch((error) => {
@@ -43,8 +45,11 @@ document.addEventListener('DOMContentLoaded', function () {
       })
   })
 
+  // If you wish to implement a "forgot password" functionality,
+  // you can add an event listener to the "forgot-password-link" as well.
   const forgotPasswordLink = document.getElementById('forgot-password-link')
   forgotPasswordLink.addEventListener('click', function () {
+    // Handle "forgot password" logic here
     console.log('Forgot password link clicked')
   })
 })

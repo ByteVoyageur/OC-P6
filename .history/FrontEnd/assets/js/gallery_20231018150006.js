@@ -1,45 +1,38 @@
 document.addEventListener('DOMContentLoaded', function () {
-  let categoryMap = {}
-  const categoryButtonsDiv = document.getElementById('category-buttons')
-  const apiEndpoint = 'http://localhost:5678/api/works'
-  let data
-
-  // Fetch category data from the API and dynamically create category buttons
   fetch('http://localhost:5678/api/categories')
     .then((response) => response.json())
     .then((categories) => {
-      categoryMap['tous'] = null // Add the "Tous" category
-      categories.forEach((category) => {
-        categoryMap[category.name.toLowerCase()] = category.id
-      })
-
-      // Add "Tous" category to the beginning of the categories list
       categories.unshift({ name: 'Tous' })
-
       categories.forEach((category) => {
         let button = document.createElement('button')
         button.textContent = category.name
         button.setAttribute('data-category', category.name.toLowerCase())
         categoryButtonsDiv.appendChild(button)
       })
-
-      // Fetch the works data
-      return fetch(apiEndpoint)
     })
+    .catch((error) => {
+      console.error('Error fetching categories:', error)
+    })
+
+  const apiEndpoint = 'http://localhost:5678/api/works'
+  let data
+
+  fetch(apiEndpoint)
     .then((response) => response.json())
     .then((fetchedData) => {
       data = fetchedData
       displayData(data)
 
       const buttons = document.querySelectorAll('#category-buttons button')
+
       buttons.forEach((button) => {
         button.addEventListener('click', () => {
           const category = button.getAttribute('data-category')
-          const filtered =
+          displayData(
             category === 'tous'
               ? data
-              : data.filter((item) => item.categoryId === categoryMap[category])
-          displayData(filtered)
+              : data.filter((item) => item.category.name === category)
+          )
         })
       })
     })

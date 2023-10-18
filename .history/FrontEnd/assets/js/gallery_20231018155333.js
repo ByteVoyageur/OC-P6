@@ -1,44 +1,44 @@
 document.addEventListener('DOMContentLoaded', function () {
-  let categoryMap = {}
-  const categoryButtonsDiv = document.getElementById('category-buttons')
-  const apiEndpoint = 'http://localhost:5678/api/works'
-  let data
+  // Define the categoryButtonsDiv variable by selecting the div with id "category-buttons"
+  const categoryButtonsDiv = document.querySelector('#category-buttons')
 
-  // Fetch category data from the API and dynamically create category buttons
   fetch('http://localhost:5678/api/categories')
     .then((response) => response.json())
     .then((categories) => {
-      categoryMap['tous'] = null // Add the "Tous" category
-      categories.forEach((category) => {
-        categoryMap[category.name.toLowerCase()] = category.id
-      })
-
-      // Add "Tous" category to the beginning of the categories list
       categories.unshift({ name: 'Tous' })
-
       categories.forEach((category) => {
         let button = document.createElement('button')
         button.textContent = category.name
         button.setAttribute('data-category', category.name.toLowerCase())
         categoryButtonsDiv.appendChild(button)
       })
-
-      // Fetch the works data
-      return fetch(apiEndpoint)
     })
+    .catch((error) => {
+      console.error('Error fetching categories:', error)
+    })
+
+  const apiEndpoint = 'http://localhost:5678/api/works'
+  let data
+
+  fetch(apiEndpoint)
     .then((response) => response.json())
     .then((fetchedData) => {
       data = fetchedData
+      console.log('Fetched data:', data) // Debugging statement
+
       displayData(data)
 
       const buttons = document.querySelectorAll('#category-buttons button')
+
       buttons.forEach((button) => {
         button.addEventListener('click', () => {
           const category = button.getAttribute('data-category')
+          console.log('Clicked category:', category) // Debugging statement
           const filtered =
             category === 'tous'
               ? data
-              : data.filter((item) => item.categoryId === categoryMap[category])
+              : data.filter((item) => item.categoryId.toString() === category)
+          console.log('Filtered data:', filtered) // Debugging statement
           displayData(filtered)
         })
       })

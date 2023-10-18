@@ -28,13 +28,10 @@ document.addEventListener('DOMContentLoaded', function () {
       .then((data) => {
         if (data.token) {
           console.log('Logged in successfully', data.token)
-          localStorage.setItem('token', data.token)
+
           window.location.href = 'index.html'
         } else {
           console.error('Login error', data)
-          alert(
-            data.message || "Une erreur s'est produite lors de la connexion."
-          )
         }
       })
       .catch((error) => {
