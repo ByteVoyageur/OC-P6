@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', function () {
       console.error('Error fetching data:', error)
     })
 
-  function displayData(filteredData, container) {
+  export function displayData(filteredData, container) {
     const galleryDiv = container || document.querySelector('.gallery')
     galleryDiv.innerHTML = ''
     filteredData.forEach((item) => {

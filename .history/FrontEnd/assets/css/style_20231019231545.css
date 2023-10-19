@@ -231,7 +231,11 @@ li:hover {
   color: #1d6154;
 }
 
-#category-buttons button:hover,
+#category-buttons button:hover {
+  background-color: #1d6154;
+  color: white;
+}
+
 #category-buttons button.active {
   background-color: #1d6154;
   color: white;
@@ -256,12 +260,18 @@ li:hover {
   gap: 10px;
 }
 
-.mini-gallery img {
-  width: 100px;
-  height: 100px;
+/* Modal Overlay Styles */
+#modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 999;
 }
 
-/* Modal Overlay Styles */
+/* Modal Content Styles */
 #modalOverlay {
   position: fixed;
   top: 0;

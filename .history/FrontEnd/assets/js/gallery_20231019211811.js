@@ -49,15 +49,37 @@ document.addEventListener('DOMContentLoaded', function () {
       console.error('Error fetching data:', error)
     })
 
-  function displayData(filteredData, container) {
-    const galleryDiv = container || document.querySelector('.gallery')
+  function displayData(filteredData, isModal = false) {
+    const galleryDiv = isModal
+      ? document.querySelector('#modalOverlay .gallery')
+      : document.querySelector('.gallery')
     galleryDiv.innerHTML = ''
+
     filteredData.forEach((item) => {
       let figure = document.createElement('figure')
 
       let img = document.createElement('img')
       img.src = item.imageUrl
       img.alt = item.title
+      if (isModal) {
+        img.style.width = '50px'
+        img.style.height = '50px'
+      }
+
+      if (isModal) {
+        let deleteIcon = document.createElement('span')
+        deleteIcon.innerHTML = '❌'
+        deleteIcon.style.position = 'absolute'
+        deleteIcon.style.right = '5px'
+        deleteIcon.style.top = '5px'
+        deleteIcon.style.cursor = 'pointer'
+
+        deleteIcon.addEventListener('click', () => {
+          galleryDiv.removeChild(figure)
+        })
+
+        figure.appendChild(deleteIcon)
+      }
 
       let figcaption = document.createElement('figcaption')
       figcaption.textContent = item.title

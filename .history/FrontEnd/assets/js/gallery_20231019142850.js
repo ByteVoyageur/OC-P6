@@ -49,8 +49,8 @@ document.addEventListener('DOMContentLoaded', function () {
       console.error('Error fetching data:', error)
     })
 
-  function displayData(filteredData, container) {
-    const galleryDiv = container || document.querySelector('.gallery')
+  function displayData(filteredData) {
+    const galleryDiv = document.querySelector('.gallery')
     galleryDiv.innerHTML = ''
     filteredData.forEach((item) => {
       let figure = document.createElement('figure')

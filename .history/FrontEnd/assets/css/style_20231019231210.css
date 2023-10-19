@@ -231,7 +231,11 @@ li:hover {
   color: #1d6154;
 }
 
-#category-buttons button:hover,
+#category-buttons button:hover {
+  background-color: #1d6154;
+  color: white;
+}
+
 #category-buttons button.active {
   background-color: #1d6154;
   color: white;
@@ -256,11 +260,6 @@ li:hover {
   gap: 10px;
 }
 
-.mini-gallery img {
-  width: 100px;
-  height: 100px;
-}
-
 /* Modal Overlay Styles */
 #modalOverlay {
   position: fixed;
@@ -270,22 +269,10 @@ li:hover {
   height: 100%;
   background: rgba(0, 0, 0, 0.7);
   z-index: 999;
-  display: none;
 }
 
-#modalOverlay.show {
-  display: block;
-}
-
-#editGalleryButton {
-  display: none;
-}
-
-#editGalleryButton.show {
-  display: block;
-}
-
-.modal-content {
+/* Modal Content Styles */
+#modalOverlay > div {
   position: relative;
   width: 50%;
   margin: 15% auto;
@@ -294,7 +281,13 @@ li:hover {
   border-radius: 8px;
 }
 
-.modal-content .close-button {
+/* Modal Text Styles */
+#modalOverlay > div > p {
+  text-align: center;
+}
+
+/* Close Modal Button Styles */
+#modalOverlay > div > button {
   position: absolute;
   right: 10px;
   top: 10px;

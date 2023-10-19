@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', function () {
     })
 
   function displayData(filteredData, container) {
-    const galleryDiv = container || document.querySelector('.gallery')
+    const galleryDiv = document.querySelector('.gallery')
     galleryDiv.innerHTML = ''
     filteredData.forEach((item) => {
       let figure = document.createElement('figure')
