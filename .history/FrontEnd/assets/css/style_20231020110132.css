@@ -250,35 +250,18 @@ li:hover {
 }
 
 .mini-gallery {
-  border-bottom: 1px solid gray;
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
   gap: 10px;
-  padding: 10%;
-  width: calc(100% - 20%);
-  box-sizing: border-box;
 }
 
 .mini-gallery img {
-  width: 100%;
-  height: auto;
+  width: 100px;
+  height: 100px;
 }
 
-.add-photo-button {
-  display: block;
-  margin: 30px auto;
-  padding: 10px 30px;
-  background-color: #1d6154;
-  color: white;
-  border: none;
-  border-radius: 15px;
-  cursor: pointer;
-}
-
-.add-photo-button:hover {
-  background-color: #16553f;
-}
-
+/* Modal Overlay Styles */
 #modalOverlay {
   position: fixed;
   top: 0;
@@ -306,19 +289,9 @@ li:hover {
   position: relative;
   width: 50%;
   margin: 15% auto;
+  padding: 20px;
   background-color: #fff;
   border-radius: 8px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.modal-content p {
-  text-align: center;
-  font-size: 24px;
-  margin: 0;
-  padding-top: 50px;
 }
 
 .modal-content .close-button {
@@ -329,7 +302,6 @@ li:hover {
   background: none;
   font-size: 20px;
   cursor: pointer;
-  z-index: 1;
 }
 
 #contact {

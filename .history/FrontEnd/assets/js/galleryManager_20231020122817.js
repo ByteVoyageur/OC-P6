@@ -53,11 +53,6 @@ document.addEventListener('DOMContentLoaded', function () {
       miniGalleryDiv.className = 'mini-gallery'
       modalContent.appendChild(miniGalleryDiv)
 
-      const addButton = document.createElement('button')
-      addButton.innerText = 'Ajouter une photo'
-      addButton.className = 'add-photo-button'
-      modalContent.appendChild(addButton)
-
       modalOverlay.appendChild(modalContent)
       document.body.appendChild(modalOverlay)
 

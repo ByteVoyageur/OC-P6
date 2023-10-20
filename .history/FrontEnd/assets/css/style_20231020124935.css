@@ -266,12 +266,12 @@ li:hover {
 
 .add-photo-button {
   display: block;
-  margin: 30px auto;
-  padding: 10px 30px;
+  margin: 20px auto;
+  padding: 20px 20px;
   background-color: #1d6154;
   color: white;
   border: none;
-  border-radius: 15px;
+  border-radius: 8px;
   cursor: pointer;
 }
 

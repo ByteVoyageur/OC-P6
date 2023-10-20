@@ -53,6 +53,7 @@ document.addEventListener('DOMContentLoaded', function () {
       miniGalleryDiv.className = 'mini-gallery'
       modalContent.appendChild(miniGalleryDiv)
 
+      // 添加 "Ajouter une photo" 按钮
       const addButton = document.createElement('button')
       addButton.innerText = 'Ajouter une photo'
       addButton.className = 'add-photo-button'

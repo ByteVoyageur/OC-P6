@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
   if (localStorage.getItem('token')) {
     const editGalleryButton = document.getElementById('editGalleryButton')
-    editGalleryButton.classList.add('show')
+    editGalleryButton.classList.add('show') // 使用CSS类来控制显示
     editGalleryButton.addEventListener('click', showModal)
   }
 
@@ -46,17 +46,11 @@ document.addEventListener('DOMContentLoaded', function () {
         modalOverlay.classList.remove('show')
       })
 
-      modalContent.appendChild(closeModalButton)
       modalContent.appendChild(modalText)
-
+      modalContent.appendChild(closeModalButton)
       const miniGalleryDiv = document.createElement('div')
       miniGalleryDiv.className = 'mini-gallery'
       modalContent.appendChild(miniGalleryDiv)
-
-      const addButton = document.createElement('button')
-      addButton.innerText = 'Ajouter une photo'
-      addButton.className = 'add-photo-button'
-      modalContent.appendChild(addButton)
 
       modalOverlay.appendChild(modalContent)
       document.body.appendChild(modalOverlay)
