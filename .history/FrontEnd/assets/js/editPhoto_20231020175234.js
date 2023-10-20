@@ -33,7 +33,9 @@ function createAddPhotoModal() {
 
   const uploadDiv = document.createElement('div')
   uploadDiv.classList.add('upload-div')
-
+  const uploadIcon = document.createElement('i')
+  uploadIcon.classList.add('fa-regular', 'fa-image')
+  customUploadLabel.appendChild(uploadIcon)
   const editModalAddPhotoButton = document.createElement('input')
   editModalAddPhotoButton.type = 'file'
   editModalAddPhotoButton.id = 'photo-upload'
@@ -42,20 +44,6 @@ function createAddPhotoModal() {
   const customUploadLabel = document.createElement('label')
   customUploadLabel.setAttribute('for', 'photo-upload')
   customUploadLabel.classList.add('customFileUpload')
-
-  const uploadIcon = document.createElement('i')
-  uploadIcon.classList.add('fa-regular', 'fa-image')
-  customUploadLabel.appendChild(uploadIcon)
-
-  const space = document.createElement('br')
-  customUploadLabel.appendChild(space)
-
-  const addButton = document.createElement('button')
-  addButton.innerText = '+ Ajout'
-  addButton.addEventListener('click', function () {
-    editModalAddPhotoButton.click() // Trigger the file input click event
-  })
-  customUploadLabel.appendChild(addButton)
 
   const uploadDescription = document.createElement('p')
   uploadDescription.innerText = 'jpg, png: 4MB max'

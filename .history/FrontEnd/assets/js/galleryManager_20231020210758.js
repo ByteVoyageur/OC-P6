@@ -1,11 +1,11 @@
 document.addEventListener('DOMContentLoaded', function () {
   if (localStorage.getItem('token')) {
     const editGalleryButton = document.getElementById('editGalleryButton')
-    const editModeIndicator = document.getElementById('editModeIndicator')
+    const editModeIndicator = document.getElementById('editModeIndicator') // 获取我们新加入的div
 
     editGalleryButton.classList.add('show')
     editGalleryButton.addEventListener('click', showModal)
-    editModeIndicator.classList.add('show')
+    editModeIndicator.classList.add('show') // 使得编辑模式指示条可见
   }
 
   function displayMiniGallery(data, container) {

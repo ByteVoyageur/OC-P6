@@ -134,20 +134,6 @@ body {
   font-family: 'Work Sans';
   font-size: 14px;
 }
-.edit-mode-indicator {
-  display: none;
-  background-color: black;
-  color: white;
-  width: 100%;
-  text-align: center;
-  padding: 10px 0;
-  font-size: 16px;
-}
-
-.edit-mode-indicator.show {
-  display: block;
-}
-
 header {
   display: flex;
   justify-content: space-between;
@@ -220,16 +206,16 @@ li:hover {
   align-items: center;
   justify-content: center;
   margin-bottom: 30px;
+  gap: 20px;
 }
 
 #portfolio-header i {
-  margin-left: 30px;
+  width: 20px;
+  height: 20px;
 }
-
 #portfolio h2 {
   text-align: center;
 }
-
 #editGalleryButton {
   display: none;
   border: none;

@@ -142,8 +142,13 @@ body {
   text-align: center;
   padding: 10px 0;
   font-size: 16px;
+  font-family: 'FontAwesome';
 }
 
+.edit-mode-indicator:before {
+  content: '\f044'; /* Unicode for the pencil/edit icon */
+  margin-right: 10px;
+}
 .edit-mode-indicator.show {
   display: block;
 }
@@ -220,10 +225,12 @@ li:hover {
   align-items: center;
   justify-content: center;
   margin-bottom: 30px;
+  gap: 20px;
 }
 
 #portfolio-header i {
-  margin-left: 30px;
+  width: 20px;
+  height: 20px;
 }
 
 #portfolio h2 {

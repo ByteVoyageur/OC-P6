@@ -44,18 +44,12 @@ function createAddPhotoModal() {
   customUploadLabel.classList.add('customFileUpload')
 
   const uploadIcon = document.createElement('i')
-  uploadIcon.classList.add('fa-regular', 'fa-image')
+  uploadIcon.classList.add('fa', 'fa-plus')
+  uploadIcon.setAttribute('aria-hidden', 'true')
   customUploadLabel.appendChild(uploadIcon)
 
-  const space = document.createElement('br')
-  customUploadLabel.appendChild(space)
-
-  const addButton = document.createElement('button')
-  addButton.innerText = '+ Ajout'
-  addButton.addEventListener('click', function () {
-    editModalAddPhotoButton.click() // Trigger the file input click event
-  })
-  customUploadLabel.appendChild(addButton)
+  const uploadText = document.createTextNode(' Ajouter')
+  customUploadLabel.appendChild(uploadText)
 
   const uploadDescription = document.createElement('p')
   uploadDescription.innerText = 'jpg, png: 4MB max'
@@ -108,7 +102,7 @@ function createAddPhotoModal() {
     if (fileName) {
       customUploadLabel.textContent = fileName
     } else {
-      customUploadLabel.textContent = '+ Ajout'
+      customUploadLabel.textContent = '选择文件'
     }
   })
 }

@@ -34,11 +34,6 @@ function createAddPhotoModal() {
   const uploadDiv = document.createElement('div')
   uploadDiv.classList.add('upload-div')
 
-  const editModalAddPhotoButton = document.createElement('input')
-  editModalAddPhotoButton.type = 'file'
-  editModalAddPhotoButton.id = 'photo-upload'
-  editModalAddPhotoButton.classList.add('hidden-upload')
-
   const customUploadLabel = document.createElement('label')
   customUploadLabel.setAttribute('for', 'photo-upload')
   customUploadLabel.classList.add('customFileUpload')

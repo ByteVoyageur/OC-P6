@@ -47,15 +47,11 @@ function createAddPhotoModal() {
   uploadIcon.classList.add('fa-regular', 'fa-image')
   customUploadLabel.appendChild(uploadIcon)
 
-  const space = document.createElement('br')
+  const space = document.createTextNode(' ')
   customUploadLabel.appendChild(space)
 
-  const addButton = document.createElement('button')
-  addButton.innerText = '+ Ajout'
-  addButton.addEventListener('click', function () {
-    editModalAddPhotoButton.click() // Trigger the file input click event
-  })
-  customUploadLabel.appendChild(addButton)
+  const uploadText = document.createTextNode('+ Ajout')
+  customUploadLabel.appendChild(uploadText)
 
   const uploadDescription = document.createElement('p')
   uploadDescription.innerText = 'jpg, png: 4MB max'
