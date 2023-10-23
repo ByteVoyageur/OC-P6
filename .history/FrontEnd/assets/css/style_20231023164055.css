@@ -398,9 +398,8 @@ li:hover {
 }
 
 .upload-div i {
-  font-size: 70px;
-  color: rgb(197, 197, 197);
-  margin-top: 25px;
+  font-size: 100px;
+  color: gray;
 }
 
 #photo-upload {
@@ -443,10 +442,9 @@ li:hover {
 #photo-category {
   width: 100%;
   border: none;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
   outline: none;
   transition: box-shadow 0.3s ease-in-out;
-  height: 35px;
 }
 
 #photo-title:focus,

@@ -361,11 +361,6 @@ li:hover {
   display: none;
 }
 
-#editModalOverlay h2 {
-  margin-top: 35px;
-  margin-bottom: 20px;
-}
-
 #editModalOverlay.show {
   display: block;
 }
@@ -392,15 +387,14 @@ li:hover {
   justify-content: center;
   margin: 20px 0;
   background-color: #e8f1f6;
-  width: 70%;
+  width: 80%;
   padding-top: 10px;
   padding-bottom: 10px;
 }
 
 .upload-div i {
-  font-size: 70px;
-  color: rgb(197, 197, 197);
-  margin-top: 25px;
+  font-size: 100px;
+  color: gray;
 }
 
 #photo-upload {
@@ -420,49 +414,6 @@ li:hover {
 #upload-description {
   font-size: 10px;
   padding: 0;
-}
-
-.title-category-div {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 70%;
-  gap: 5px;
-  margin-bottom: 50px;
-}
-
-#photo-title {
-  width: 100%;
-  border: none;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-  outline: none;
-  transition: box-shadow 0.3s ease-in-out;
-  height: 35px;
-}
-
-#photo-category {
-  width: 100%;
-  border: none;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-  outline: none;
-  transition: box-shadow 0.3s ease-in-out;
-  height: 35px;
-}
-
-#photo-title:focus,
-#photo-category:focus {
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
-}
-
-#edit-add-photo-button {
-  margin: 30px auto;
-  padding: 10px 30px;
-  background-color: #1d6154;
-  color: white;
-  border: none;
-  border-radius: 15px;
-  cursor: pointer;
-  margin-bottom: 63px;
 }
 
 #contact {

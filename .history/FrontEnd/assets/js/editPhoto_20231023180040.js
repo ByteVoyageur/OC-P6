@@ -130,20 +130,6 @@ document.body.addEventListener('click', function (event) {
   }
 })
 
-async function fetchCategories() {
-  try {
-    let response = await fetch('http://localhost:5678/api/categories')
-    if (!response.ok) {
-      throw new Error('Network response was not ok')
-    }
-    let categories = await response.json()
-    return categories
-  } catch (error) {
-    console.error('There was a problem fetching the categories:', error)
-    return []
-  }
-}
-
 function createAddPhotoModal() {
   const editModal = document.createElement('div')
   editModal.id = 'editModalOverlay'
@@ -214,15 +200,13 @@ function createAddPhotoModal() {
   editModalAddPhotoFormCategoryInput.id = 'photo-category'
   editModalAddPhotoFormCategoryInput.required = true
 
-  // Fetch categories from the API and populate the dropdown
-  fetchCategories().then((categories) => {
-    categories.forEach((category) => {
-      const option = document.createElement('option')
-      option.value = category.id // Assuming the API returns an id for each category
-      option.textContent = category.name // Assuming the API returns a name for each category
-      editModalAddPhotoFormCategoryInput.appendChild(option)
-    })
-  })
+  const categories = ['Category 1', 'Category 2', 'Category 3']
+  for (const category of categories) {
+    const option = document.createElement('option')
+    option.value = category
+    option.innerText = category
+    editModalAddPhotoFormCategoryInput.appendChild(option)
+  }
 
   editModal.appendChild(editModalContent)
   editModalContent.appendChild(editModalCloseButton)

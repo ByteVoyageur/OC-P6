@@ -398,9 +398,8 @@ li:hover {
 }
 
 .upload-div i {
-  font-size: 70px;
-  color: rgb(197, 197, 197);
-  margin-top: 25px;
+  font-size: 100px;
+  color: gray;
 }
 
 #photo-upload {
