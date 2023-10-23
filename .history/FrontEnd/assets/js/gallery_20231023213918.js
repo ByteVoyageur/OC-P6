@@ -50,7 +50,6 @@ document.addEventListener('DOMContentLoaded', function () {
     })
 
   function displayData(filteredData, container) {
-    console.log('displayData called')
     const galleryDiv = container || document.querySelector('.gallery')
     galleryDiv.innerHTML = ''
     filteredData.forEach((item) => {

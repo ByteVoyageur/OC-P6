@@ -72,8 +72,6 @@ document.addEventListener('DOMContentLoaded', function () {
     fetch('http://localhost:5678/api/works')
       .then((response) => response.json())
       .then((data) => {
-        const miniGalleryDiv = document.querySelector('.mini-gallery')
-        miniGalleryDiv.innerHTML = ''
         displayMiniGallery(data, document.querySelector('.mini-gallery'))
       })
       .catch((error) => {

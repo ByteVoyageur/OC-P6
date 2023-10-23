@@ -8,6 +8,13 @@ document.body.addEventListener('click', function (event) {
   }
 })
 
+document.body.addEventListener('click', function (event) {
+  if (event.target && event.target.id === 'add-photo-button') {
+    console.log('Add photo button clicked')
+    createAddPhotoModal()
+  }
+})
+
 function initializeAddPhotoModalLogic() {
   const addPhotoButton = document.getElementById('add-photo-button')
   const fileInput = document.getElementById('photo-upload') // Adjusted to match the ID in the modal structure
