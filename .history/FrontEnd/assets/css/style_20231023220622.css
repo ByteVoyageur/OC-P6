@@ -436,10 +436,6 @@ li:hover {
   margin: auto;
 }
 
-.hidden-upload {
-  display: none;
-}
-
 .title-category-div {
   display: flex;
   flex-direction: column;

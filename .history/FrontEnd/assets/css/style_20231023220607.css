@@ -433,11 +433,6 @@ li:hover {
   height: 100%;
   width: 30%;
   display: block;
-  margin: auto;
-}
-
-.hidden-upload {
-  display: none;
 }
 
 .title-category-div {

@@ -37,27 +37,6 @@ function createAddPhotoModal() {
   editModalAddPhotoButton.id = 'photo-upload'
   editModalAddPhotoButton.classList.add('hidden-upload')
 
-  editModalAddPhotoButton.addEventListener('change', function (e) {
-    const file = e.target.files[0]
-    if (file) {
-      const reader = new FileReader()
-      reader.onload = function (event) {
-        thumbnail.src = event.target.result
-        thumbnail.classList.remove('hidden-upload')
-
-        customUploadLabel.classList.add('hidden-upload')
-        uploadDescription.classList.add('hidden-upload')
-      }
-      reader.readAsDataURL(file)
-    } else {
-      customUploadLabel.classList.remove('hidden-upload')
-      uploadDescription.classList.remove('hidden-upload')
-      thumbnail.classList.add('hidden-upload')
-    }
-  })
-
-  uploadDiv.appendChild(editModalAddPhotoButton)
-
   const customUploadLabel = document.createElement('label')
   customUploadLabel.setAttribute('for', 'photo-upload')
   customUploadLabel.classList.add('customFileUpload')
