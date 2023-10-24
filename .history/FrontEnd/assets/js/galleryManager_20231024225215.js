@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function () {
       img.alt = item.title
 
       const deleteIcon = document.createElement('i')
-      deleteIcon.classList.add('fa-regular', 'fa-trash-can')
+      deleteIcon.classList.add('far', 'fa-trash-can')
       deleteIcon.dataset.id = item.id
       deleteIcon.addEventListener('click', handleDeleteClick)
 

@@ -283,7 +283,7 @@ li:hover {
 }
 
 .mini-gallery figure {
-  position: relative;
+  position: relative; /* 添加相对定位 */
 }
 
 .mini-gallery img {
@@ -293,13 +293,13 @@ li:hover {
 
 .mini-gallery .fa-trash-can {
   position: absolute;
-  top: 0;
-  right: 0;
-  cursor: pointer;
-  padding: 5px;
-  background-color: rgba(0, 0, 0, 0.5);
-  color: white;
-  border-radius: 50%;
+  top: 0; /* 位于顶部 */
+  right: 0; /* 位于右侧 */
+  cursor: pointer; /* 当鼠标悬停时，将其变为指针，提供视觉反馈 */
+  padding: 5px; /* 提供一些内部间距以增加可点击区域 */
+  background-color: rgba(0, 0, 0, 0.5); /* 轻微的背景色增加可见性 */
+  color: white; /* 设置图标颜色 */
+  border-radius: 50%; /* 使其成为一个圆形 */
 }
 
 #add-photo-button {
