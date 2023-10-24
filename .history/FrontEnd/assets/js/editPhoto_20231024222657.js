@@ -52,9 +52,9 @@ function initializeAddPhotoModalLogic() {
 
     const formData = new FormData()
     formData.append('title', titleInput.value)
-    formData.append('image', fileInput.files[0]) // Changed 'imageUrl' to 'image'
-    formData.append('category', categoryDropdown.value) // Changed 'categoryId' to 'category'
-    // Removed userId, because it's not specified in the API documentation
+    formData.append('imageUrl', fileInput.files[0])
+    formData.append('categoryId', categoryDropdown.value)
+    formData.append('userId', localStorage.getItem('userId'))
 
     customLog('FormData prepared')
 

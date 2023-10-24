@@ -1,35 +1,26 @@
-console.log('editPhoto.js is starting!')
-let logs = []
-
-function customLog(message) {
-  logs.push(message)
-  console.log(message)
-}
+console.log('editPhoto.js is starting')
 
 document.body.addEventListener('click', function (event) {
+  // Check if the clicked element is "add-photo-button"
   if (event.target && event.target.id === 'add-photo-button') {
-    customLog('Add photo button clicked')
+    console.log('Add photo button clicked')
     createAddPhotoModal()
   }
 })
 
 function initializeAddPhotoModalLogic() {
-  customLog('initializeAddPhotoModalLogic is starting')
   const addPhotoButton = document.getElementById('add-photo-button')
-  const fileInput = document.getElementById('photo-upload')
-  const titleInput = document.getElementById('photo-title')
-  const categoryDropdown = document.getElementById('photo-category')
-  const submitButton = document.getElementById('edit-add-photo-button')
+  const fileInput = document.getElementById('photo-upload') // Adjusted to match the ID in the modal structure
+  const titleInput = document.getElementById('photo-title') // Adjusted to match the ID in the modal structure
+  const categoryDropdown = document.getElementById('photo-category') // Adjusted to match the ID in the modal structure
+  const submitButton = document.getElementById('edit-add-photo-button') // Adjusted to match the ID in the modal structure
 
   function fileInputClickHandler() {
-    customLog('File input click handler triggered')
     fileInput.click()
   }
 
   function fileInputChangeHandler(e) {
     var fileName = e.target.value.split('\\').pop()
-    customLog(`File changed: ${fileName}`)
-
     if (fileName) {
       addPhotoButton.textContent = fileName
     } else {
@@ -45,18 +36,18 @@ function initializeAddPhotoModalLogic() {
       reader.readAsDataURL(fileInput.files[0])
     }
   }
+  let logs = []
 
-  function submitButtonClickHandler(event) {
-    event.preventDefault()
-    customLog('submitButtonClickHandler has started')
-
+  function customLog(message) {
+    logs.push(message)
+    console.log(message)
+  }
+  function submitButtonClickHandler() {
     const formData = new FormData()
     formData.append('title', titleInput.value)
-    formData.append('image', fileInput.files[0]) // Changed 'imageUrl' to 'image'
-    formData.append('category', categoryDropdown.value) // Changed 'categoryId' to 'category'
-    // Removed userId, because it's not specified in the API documentation
-
-    customLog('FormData prepared')
+    formData.append('imageUrl', fileInput.files[0])
+    formData.append('categoryId', categoryDropdown.value)
+    formData.append('userId', localStorage.getItem('userId'))
 
     fetch('http://localhost:5678/api/works', {
       method: 'POST',
@@ -65,19 +56,12 @@ function initializeAddPhotoModalLogic() {
       },
       body: formData,
     })
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error(
-            `Network response was not ok: ${response.status} ${response.statusText}`
-          )
-        }
-        return response.json()
-      })
+      .then((response) => response.json())
       .then((data) => {
-        customLog(`Upload response: ${JSON.stringify(data)}`)
+        console.log('Upload response:', data)
       })
       .catch((error) => {
-        customLog(`Error uploading photo: ${error.message}`)
+        console.error('Error uploading photo:', error)
       })
   }
 

@@ -132,8 +132,37 @@ function createAddPhotoModal() {
   const validateButton = document.createElement('button')
   validateButton.id = 'edit-add-photo-button'
   validateButton.innerText = 'Valider'
-  editModalAddPhotoForm.appendChild(validateButton) // Moved inside the form
+  editModalAddPhotoForm.appendChild(validateButton)
 
+  validateButton.addEventListener('click', function (event) {
+    // 阻止默认的表单提交行为
+    event.preventDefault()
+
+    console.log('Valider button clicked')
+
+    // 获取输入字段的值
+    const titleValue = document.getElementById('photo-title').value
+    const selectedFile = document.getElementById('photo-upload').files[0]
+    const categoryValue = document.getElementById('photo-category').value
+
+    // 基本验证
+    if (!titleValue) {
+      console.error('Title is required')
+      return // 终止后续的代码执行
+    }
+
+    if (!selectedFile) {
+      console.error('A photo must be uploaded')
+      return // 终止后续的代码执行
+    }
+
+    if (!categoryValue) {
+      console.error('Category must be selected')
+      return // 终止后续的代码执行
+    }
+
+    // 如果所有验证都通过，您可以继续发送数据到服务器的逻辑...
+  })
   editModalContent.appendChild(editModalCloseButton)
   editModalContent.appendChild(editModalTitle)
   editModalContent.appendChild(editModalAddPhotoForm)
@@ -150,7 +179,6 @@ function createAddPhotoModal() {
       customUploadLabel.textContent = '+ Ajout'
     }
   })
-  initializeAddPhotoModalLogic()
 }
 
 async function fetchCategories() {

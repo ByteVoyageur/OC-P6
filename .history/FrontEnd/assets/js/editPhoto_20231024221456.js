@@ -1,4 +1,4 @@
-console.log('editPhoto.js is starting!')
+console.log('editPhoto.js is starting')
 let logs = []
 
 function customLog(message) {
@@ -14,7 +14,6 @@ document.body.addEventListener('click', function (event) {
 })
 
 function initializeAddPhotoModalLogic() {
-  customLog('initializeAddPhotoModalLogic is starting')
   const addPhotoButton = document.getElementById('add-photo-button')
   const fileInput = document.getElementById('photo-upload')
   const titleInput = document.getElementById('photo-title')
@@ -46,17 +45,14 @@ function initializeAddPhotoModalLogic() {
     }
   }
 
-  function submitButtonClickHandler(event) {
-    event.preventDefault()
-    customLog('submitButtonClickHandler has started')
+  function submitButtonClickHandler() {
+    customLog('Submit button clicked, preparing FormData')
 
     const formData = new FormData()
     formData.append('title', titleInput.value)
-    formData.append('image', fileInput.files[0]) // Changed 'imageUrl' to 'image'
-    formData.append('category', categoryDropdown.value) // Changed 'categoryId' to 'category'
-    // Removed userId, because it's not specified in the API documentation
-
-    customLog('FormData prepared')
+    formData.append('imageUrl', fileInput.files[0])
+    formData.append('categoryId', categoryDropdown.value)
+    formData.append('userId', localStorage.getItem('userId'))
 
     fetch('http://localhost:5678/api/works', {
       method: 'POST',
@@ -67,9 +63,7 @@ function initializeAddPhotoModalLogic() {
     })
       .then((response) => {
         if (!response.ok) {
-          throw new Error(
-            `Network response was not ok: ${response.status} ${response.statusText}`
-          )
+          throw new Error('Network response was not ok')
         }
         return response.json()
       })

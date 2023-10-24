@@ -133,7 +133,10 @@ function createAddPhotoModal() {
   validateButton.id = 'edit-add-photo-button'
   validateButton.innerText = 'Valider'
   editModalAddPhotoForm.appendChild(validateButton) // Moved inside the form
-
+validateButton.addEventListener('click', function (event) {
+    event.preventDefault(); // 阻止默认的提交行为
+    console.log('Submit button clicked')
+    
   editModalContent.appendChild(editModalCloseButton)
   editModalContent.appendChild(editModalTitle)
   editModalContent.appendChild(editModalAddPhotoForm)
@@ -150,7 +153,6 @@ function createAddPhotoModal() {
       customUploadLabel.textContent = '+ Ajout'
     }
   })
-  initializeAddPhotoModalLogic()
 }
 
 async function fetchCategories() {

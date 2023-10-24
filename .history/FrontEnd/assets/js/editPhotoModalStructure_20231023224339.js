@@ -133,24 +133,27 @@ function createAddPhotoModal() {
   validateButton.id = 'edit-add-photo-button'
   validateButton.innerText = 'Valider'
   editModalAddPhotoForm.appendChild(validateButton) // Moved inside the form
+  validateButton.addEventListener('click', function (event) {
+    event.preventDefault() // 阻止默认的提交行为
+    console.log('Submit button clicked')
 
-  editModalContent.appendChild(editModalCloseButton)
-  editModalContent.appendChild(editModalTitle)
-  editModalContent.appendChild(editModalAddPhotoForm)
+    editModalContent.appendChild(editModalCloseButton)
+    editModalContent.appendChild(editModalTitle)
+    editModalContent.appendChild(editModalAddPhotoForm)
 
-  editModal.appendChild(editModalContent)
+    editModal.appendChild(editModalContent)
 
-  document.body.appendChild(editModal)
+    document.body.appendChild(editModal)
 
-  editModalAddPhotoButton.addEventListener('change', function (e) {
-    var fileName = e.target.value.split('\\').pop()
-    if (fileName) {
-      customUploadLabel.textContent = fileName
-    } else {
-      customUploadLabel.textContent = '+ Ajout'
-    }
+    editModalAddPhotoButton.addEventListener('change', function (e) {
+      var fileName = e.target.value.split('\\').pop()
+      if (fileName) {
+        customUploadLabel.textContent = fileName
+      } else {
+        customUploadLabel.textContent = '+ Ajout'
+      }
+    })
   })
-  initializeAddPhotoModalLogic()
 }
 
 async function fetchCategories() {

@@ -18,9 +18,9 @@ function createAddPhotoModal() {
   const editModalCloseButton = document.createElement('button')
   editModalCloseButton.innerText = 'X'
   editModalCloseButton.classList.add('close-button')
-  editModalCloseButton.addEventListener('click', function () {
-    editModal.classList.remove('show')
-  })
+  // editModalCloseButton.addEventListener('click', function () {
+  //   editModal.classList.remove('show')
+  // })
 
   const editModalTitle = document.createElement('h2')
   editModalTitle.innerText = 'Ajout photo'
@@ -132,8 +132,33 @@ function createAddPhotoModal() {
   const validateButton = document.createElement('button')
   validateButton.id = 'edit-add-photo-button'
   validateButton.innerText = 'Valider'
-  editModalAddPhotoForm.appendChild(validateButton) // Moved inside the form
+  editModalAddPhotoForm.appendChild(validateButton)
 
+  validateButton.addEventListener('click', function (event) {
+    event.preventDefault()
+
+    console.log('Valider button clicked')
+
+    const titleValue = document.getElementById('photo-title').value
+    const selectedFile = document.getElementById('photo-upload').files[0]
+    const categoryValue = document.getElementById('photo-category').value
+
+    if (!titleValue) {
+      console.error('Title is required')
+      return
+    }
+
+    if (!selectedFile) {
+      console.error('A photo must be uploaded')
+      return
+    }
+
+    if (!categoryValue) {
+      console.error('Category must be selected')
+      return
+    }
+    submitButtonClickHandler()
+  })
   editModalContent.appendChild(editModalCloseButton)
   editModalContent.appendChild(editModalTitle)
   editModalContent.appendChild(editModalAddPhotoForm)
@@ -141,7 +166,7 @@ function createAddPhotoModal() {
   editModal.appendChild(editModalContent)
 
   document.body.appendChild(editModal)
-
+  initializeAddPhotoModalLogic()
   editModalAddPhotoButton.addEventListener('change', function (e) {
     var fileName = e.target.value.split('\\').pop()
     if (fileName) {
@@ -150,7 +175,6 @@ function createAddPhotoModal() {
       customUploadLabel.textContent = '+ Ajout'
     }
   })
-  initializeAddPhotoModalLogic()
 }
 
 async function fetchCategories() {

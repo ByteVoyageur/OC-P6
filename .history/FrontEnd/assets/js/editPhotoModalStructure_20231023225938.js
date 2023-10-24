@@ -132,7 +132,12 @@ function createAddPhotoModal() {
   const validateButton = document.createElement('button')
   validateButton.id = 'edit-add-photo-button'
   validateButton.innerText = 'Valider'
-  editModalAddPhotoForm.appendChild(validateButton) // Moved inside the form
+  editModalAddPhotoForm.appendChild(validateButton)
+
+  validateButton.addEventListener('click', function (event) {
+    event.preventDefault() //阻止冒泡，问题在后面
+    console.log('Valider button clicked')
+  })
 
   editModalContent.appendChild(editModalCloseButton)
   editModalContent.appendChild(editModalTitle)
@@ -150,7 +155,6 @@ function createAddPhotoModal() {
       customUploadLabel.textContent = '+ Ajout'
     }
   })
-  initializeAddPhotoModalLogic()
 }
 
 async function fetchCategories() {
