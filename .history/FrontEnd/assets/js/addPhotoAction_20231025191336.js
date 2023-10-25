@@ -37,7 +37,7 @@ function initializeAddPhotoModalLogic() {
   function submitButtonClickHandler(event) {
     event.preventDefault()
     if (!titleInput.value.trim()) {
-      alert('Please enter a title.')
+      alert('Veuillez entrer un titre.')
       return
     }
     const formData = new FormData()

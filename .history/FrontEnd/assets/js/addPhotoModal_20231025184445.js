@@ -12,6 +12,16 @@ async function fetchCategories() {
   }
 }
 
+function createBackIcon() {
+  const backIcon = document.createElement('i')
+  backIcon.classList.add('fa-solid', 'fa-arrow-left', 'back-icon')
+  backIcon.addEventListener('click', function () {
+    editModal.classList.remove('show')
+    modalOverlay.classList.add('show')
+  })
+  return backIcon
+}
+
 function createAddPhotoModal() {
   modalOverlay.classList.remove('show')
   const editModal = document.createElement('div')
@@ -20,14 +30,6 @@ function createAddPhotoModal() {
 
   const editModalContent = document.createElement('div')
   editModalContent.classList.add('modal-content')
-
-  const backIcon = document.createElement('i')
-  backIcon.classList.add('fa-solid', 'fa-arrow-left', 'back-icon')
-  editModalContent.appendChild(backIcon)
-  backIcon.addEventListener('click', function () {
-    editModal.classList.remove('show')
-    modalOverlay.classList.add('show')
-  })
 
   const editModalCloseButton = document.createElement('button')
   editModalCloseButton.innerText = 'X'

@@ -12,37 +12,27 @@ async function fetchCategories() {
   }
 }
 
-function createAddPhotoModal() {
-  modalOverlay.classList.remove('show')
-  const editModal = document.createElement('div')
-  editModal.id = 'editModalOverlay'
-  editModal.classList.add('show')
-
-  const editModalContent = document.createElement('div')
-  editModalContent.classList.add('modal-content')
-
+function createBackIcon() {
   const backIcon = document.createElement('i')
   backIcon.classList.add('fa-solid', 'fa-arrow-left', 'back-icon')
-  editModalContent.appendChild(backIcon)
   backIcon.addEventListener('click', function () {
-    editModal.classList.remove('show')
+    document.getElementById('editModalOverlay').classList.remove('show')
     modalOverlay.classList.add('show')
   })
+  return backIcon
+}
 
-  const editModalCloseButton = document.createElement('button')
-  editModalCloseButton.innerText = 'X'
-  editModalCloseButton.classList.add('close-button')
-  editModalCloseButton.addEventListener('click', function () {
-    editModal.classList.remove('show')
+function createCloseButton() {
+  const closeButton = document.createElement('button')
+  closeButton.innerText = 'X'
+  closeButton.classList.add('close-button')
+  closeButton.addEventListener('click', function () {
+    document.getElementById('editModalOverlay').classList.remove('show')
   })
+  return closeButton
+}
 
-  const editModalTitle = document.createElement('h2')
-  editModalTitle.innerText = 'Ajout photo'
-
-  const editModalAddPhotoForm = document.createElement('form')
-  editModalAddPhotoForm.id = 'add-photo-form'
-  editModalAddPhotoForm.setAttribute('enctype', 'multipart/form-data')
-
+function createUploadDiv() {
   const uploadDiv = document.createElement('div')
   uploadDiv.classList.add('upload-div')
 
@@ -50,73 +40,60 @@ function createAddPhotoModal() {
   editModalAddPhotoButton.type = 'file'
   editModalAddPhotoButton.id = 'photo-upload'
   editModalAddPhotoButton.classList.add('hidden-upload')
-
-  editModalAddPhotoButton.addEventListener('change', function (e) {
-    const file = e.target.files[0]
-    if (file) {
-      const reader = new FileReader()
-      reader.onload = function (event) {
-        thumbnail.src = event.target.result
-        thumbnail.classList.remove('hidden-upload')
-
-        customUploadLabel.classList.add('hidden-upload')
-        uploadDescription.classList.add('hidden-upload')
-      }
-      reader.readAsDataURL(file)
-    } else {
-      customUploadLabel.classList.remove('hidden-upload')
-      uploadDescription.classList.remove('hidden-upload')
-      thumbnail.classList.add('hidden-upload')
-    }
-  })
-
   uploadDiv.appendChild(editModalAddPhotoButton)
 
   const customUploadLabel = document.createElement('label')
   customUploadLabel.setAttribute('for', 'photo-upload')
   customUploadLabel.classList.add('customFileUpload')
+  uploadDiv.appendChild(customUploadLabel)
 
   const uploadIcon = document.createElement('i')
   uploadIcon.classList.add('fa-regular', 'fa-image')
   customUploadLabel.appendChild(uploadIcon)
 
-  const space = document.createElement('br')
-  customUploadLabel.appendChild(space)
-
   const addButton = document.createElement('button')
   addButton.innerText = '+ Ajouter photo'
-  addButton.addEventListener('click', function () {
-    editModalAddPhotoButton.click()
-  })
   customUploadLabel.appendChild(addButton)
 
   const uploadDescription = document.createElement('p')
   uploadDescription.innerText = 'jpg, png: 4MB max'
   uploadDescription.id = 'upload-description'
+  uploadDiv.appendChild(uploadDescription)
 
   const thumbnailContainer = document.createElement('div')
   thumbnailContainer.classList.add('thumbnail-container')
   const thumbnail = document.createElement('img')
   thumbnail.id = 'selectedImageThumbnail'
   thumbnailContainer.appendChild(thumbnail)
+  uploadDiv.appendChild(thumbnailContainer)
 
+  return uploadDiv
+}
+
+function createFormFieldsDiv() {
   const formFieldsDiv = document.createElement('div')
   formFieldsDiv.classList.add('title-category-div')
 
   const editModalAddPhotoFormTitle = document.createElement('label')
   editModalAddPhotoFormTitle.innerText = 'Titre'
   editModalAddPhotoFormTitle.setAttribute('for', 'photo-title')
+  formFieldsDiv.appendChild(editModalAddPhotoFormTitle)
+
   const editModalAddPhotoFormTitleInput = document.createElement('input')
   editModalAddPhotoFormTitleInput.type = 'text'
   editModalAddPhotoFormTitleInput.id = 'photo-title'
   editModalAddPhotoFormTitleInput.required = true
+  formFieldsDiv.appendChild(editModalAddPhotoFormTitleInput)
 
   const editModalAddPhotoFormCategory = document.createElement('label')
   editModalAddPhotoFormCategory.innerText = 'Catégorie'
   editModalAddPhotoFormCategory.setAttribute('for', 'photo-category')
+  formFieldsDiv.appendChild(editModalAddPhotoFormCategory)
+
   const editModalAddPhotoFormCategoryInput = document.createElement('select')
   editModalAddPhotoFormCategoryInput.id = 'photo-category'
   editModalAddPhotoFormCategoryInput.required = true
+  formFieldsDiv.appendChild(editModalAddPhotoFormCategoryInput)
 
   // Fetch categories from the API and populate the dropdown
   fetchCategories().then((categories) => {
@@ -128,41 +105,39 @@ function createAddPhotoModal() {
     })
   })
 
-  editModalAddPhotoForm.appendChild(uploadDiv)
+  return formFieldsDiv
+}
 
-  uploadDiv.appendChild(editModalAddPhotoButton)
-  uploadDiv.appendChild(customUploadLabel)
-  uploadDiv.appendChild(uploadDescription)
-  uploadDiv.appendChild(thumbnailContainer)
+function createAddPhotoModal() {
+  modalOverlay.classList.remove('show')
+  const editModal = document.createElement('div')
+  editModal.id = 'editModalOverlay'
+  editModal.classList.add('show')
 
-  editModalAddPhotoForm.appendChild(formFieldsDiv)
-  formFieldsDiv.appendChild(document.createElement('br'))
-  formFieldsDiv.appendChild(editModalAddPhotoFormTitle)
-  formFieldsDiv.appendChild(editModalAddPhotoFormTitleInput)
-  formFieldsDiv.appendChild(document.createElement('br'))
-  formFieldsDiv.appendChild(editModalAddPhotoFormCategory)
-  formFieldsDiv.appendChild(editModalAddPhotoFormCategoryInput)
+  const editModalContent = document.createElement('div')
+  editModalContent.classList.add('modal-content')
+  editModalContent.appendChild(createBackIcon())
+  editModalContent.appendChild(createCloseButton())
+
+  const editModalTitle = document.createElement('h2')
+  editModalTitle.innerText = 'Ajout photo'
+  editModalContent.appendChild(editModalTitle)
+
+  const editModalAddPhotoForm = document.createElement('form')
+  editModalAddPhotoForm.id = 'add-photo-form'
+  editModalAddPhotoForm.setAttribute('enctype', 'multipart/form-data')
+  editModalAddPhotoForm.appendChild(createUploadDiv())
+  editModalAddPhotoForm.appendChild(createFormFieldsDiv())
 
   const validateButton = document.createElement('button')
   validateButton.id = 'edit-add-photo-button'
   validateButton.innerText = 'Valider'
   editModalAddPhotoForm.appendChild(validateButton)
 
-  editModalContent.appendChild(editModalCloseButton)
-  editModalContent.appendChild(editModalTitle)
   editModalContent.appendChild(editModalAddPhotoForm)
-
   editModal.appendChild(editModalContent)
 
   document.body.appendChild(editModal)
 
-  editModalAddPhotoButton.addEventListener('change', function (e) {
-    var fileName = e.target.value.split('\\').pop()
-    if (fileName) {
-      customUploadLabel.textContent = fileName
-    } else {
-      customUploadLabel.textContent = '+ Ajout'
-    }
-  })
   initializeAddPhotoModalLogic()
 }

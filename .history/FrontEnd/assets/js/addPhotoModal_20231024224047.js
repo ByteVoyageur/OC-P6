@@ -1,17 +1,3 @@
-async function fetchCategories() {
-  try {
-    let response = await fetch('http://localhost:5678/api/categories')
-    if (!response.ok) {
-      throw new Error('Network response was not ok')
-    }
-    let categories = await response.json()
-    return categories
-  } catch (error) {
-    console.error('There was a problem fetching the categories:', error)
-    return []
-  }
-}
-
 function createAddPhotoModal() {
   modalOverlay.classList.remove('show')
   const editModal = document.createElement('div')
@@ -165,4 +151,18 @@ function createAddPhotoModal() {
     }
   })
   initializeAddPhotoModalLogic()
+}
+
+async function fetchCategories() {
+  try {
+    let response = await fetch('http://localhost:5678/api/categories')
+    if (!response.ok) {
+      throw new Error('Network response was not ok')
+    }
+    let categories = await response.json()
+    return categories
+  } catch (error) {
+    console.error('There was a problem fetching the categories:', error)
+    return []
+  }
 }
