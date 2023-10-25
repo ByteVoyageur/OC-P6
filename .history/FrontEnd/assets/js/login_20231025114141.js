@@ -35,6 +35,7 @@ loginForm.addEventListener('submit', function (event) {
       }
     })
     .catch((error) => {
+      // Handle any other errors
       console.error('Error during login', error)
     })
 })
