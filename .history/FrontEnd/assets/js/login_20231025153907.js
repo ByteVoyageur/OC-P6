@@ -1,4 +1,4 @@
-const loginForm = document.getElementById('login-page-form')
+const loginForm = document.querySelector('.login-submit-button')
 
 loginForm.addEventListener('submit', function (event) {
   event.preventDefault()
@@ -37,4 +37,9 @@ loginForm.addEventListener('submit', function (event) {
     .catch((error) => {
       console.error('Error during login', error)
     })
+})
+
+const forgotPasswordLink = document.getElementById('forgot-password-link')
+forgotPasswordLink.addEventListener('click', function () {
+  console.log('Forgot password link clicked')
 })

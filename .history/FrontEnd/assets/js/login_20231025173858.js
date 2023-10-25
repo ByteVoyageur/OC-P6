@@ -38,3 +38,8 @@ loginForm.addEventListener('submit', function (event) {
       console.error('Error during login', error)
     })
 })
+
+const forgotPasswordLink = document.getElementById('forgot-password-link')
+forgotPasswordLink.addEventListener('click', function () {
+  console.log('Forgot password link clicked')
+})
