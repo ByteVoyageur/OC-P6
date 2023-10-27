@@ -1,21 +1,29 @@
 document.body.addEventListener('click', function (event) {
-  if (event.target && event.target.id === 'openAddPhotoModalButton') {
+  if (event.target && event.target.id === 'add-photo-button') {
     createAddPhotoModal()
   }
 })
 
 function initializeAddPhotoModalLogic() {
-  const addPhotoButton = document.getElementById('upload-photo-button')
+  const addPhotoButton = document.getElementById('add-photo-button')
   const fileInput = document.getElementById('photo-upload')
   const titleInput = document.getElementById('photo-title')
   const categoryDropdown = document.getElementById('photo-category')
-  const submitButton = document.getElementById('valider-add-photo-button')
+  const submitButton = document.getElementById('edit-add-photo-button')
 
   function fileInputClickHandler() {
     fileInput.click()
   }
 
   function fileInputChangeHandler(e) {
+    var fileName = e.target.value.split('\\').pop()
+
+    if (fileName) {
+      addPhotoButton.textContent = fileName
+    } else {
+      addPhotoButton.textContent = '+ Ajout'
+    }
+
     if (fileInput.files && fileInput.files[0]) {
       const reader = new FileReader()
       reader.onload = function (e) {
@@ -28,15 +36,10 @@ function initializeAddPhotoModalLogic() {
 
   function submitButtonClickHandler(event) {
     event.preventDefault()
-    if (!fileInput.files || fileInput.files.length === 0) {
-      alert('Please add a photo.')
-      return
-    }
     if (!titleInput.value.trim()) {
       alert('Please enter a title.')
       return
     }
-
     const formData = new FormData()
     formData.append('title', titleInput.value)
     formData.append('image', fileInput.files[0])
@@ -57,12 +60,8 @@ function initializeAddPhotoModalLogic() {
         }
         return response.json()
       })
-      .then((data) => {
-        alert('Photo added successfully. Please refresh the page to see it.')
-      })
-      .catch((error) => {
-        alert('There was a problem adding the photo.')
-      })
+      .then((data) => {})
+      .catch((error) => {})
   }
 
   addPhotoButton.addEventListener('click', fileInputClickHandler)

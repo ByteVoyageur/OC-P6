@@ -90,7 +90,7 @@ document.addEventListener('DOMContentLoaded', function () {
       const openAddPhotoModal = document.createElement('button')
       openAddPhotoModal.innerText = 'Ajouter une photo'
       openAddPhotoModal.id = 'openAddPhotoModalButton'
-      modalContent.appendChild(openAddPhotoModal)
+      modalContent.appendChild(addButton)
 
       modalOverlay.appendChild(modalContent)
       document.body.appendChild(modalOverlay)

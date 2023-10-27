@@ -32,6 +32,7 @@ function initializeAddPhotoModalLogic() {
       alert('Please add a photo.')
       return
     }
+
     if (!titleInput.value.trim()) {
       alert('Please enter a title.')
       return
@@ -58,7 +59,7 @@ function initializeAddPhotoModalLogic() {
         return response.json()
       })
       .then((data) => {
-        alert('Photo added successfully. Please refresh the page to see it.')
+        alert('Photo added successfully.')
       })
       .catch((error) => {
         alert('There was a problem adding the photo.')

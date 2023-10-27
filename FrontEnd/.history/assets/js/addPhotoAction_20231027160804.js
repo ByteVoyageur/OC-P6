@@ -58,7 +58,7 @@ function initializeAddPhotoModalLogic() {
         return response.json()
       })
       .then((data) => {
-        alert('Photo added successfully. Please refresh the page to see it.')
+        alert('Photo added successfully.')
       })
       .catch((error) => {
         alert('There was a problem adding the photo.')

@@ -28,15 +28,14 @@ function initializeAddPhotoModalLogic() {
 
   function submitButtonClickHandler(event) {
     event.preventDefault()
-    if (!fileInput.files || fileInput.files.length === 0) {
-      alert('Please add a photo.')
-      return
-    }
     if (!titleInput.value.trim()) {
       alert('Please enter a title.')
       return
     }
-
+    if (!fileInput.files || fileInput.files.length === 0) {
+      alert('Please add a photo.')
+      return
+    }
     const formData = new FormData()
     formData.append('title', titleInput.value)
     formData.append('image', fileInput.files[0])
@@ -58,7 +57,7 @@ function initializeAddPhotoModalLogic() {
         return response.json()
       })
       .then((data) => {
-        alert('Photo added successfully. Please refresh the page to see it.')
+        alert('Photo added successfully.')
       })
       .catch((error) => {
         alert('There was a problem adding the photo.')

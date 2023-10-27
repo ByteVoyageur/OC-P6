@@ -146,7 +146,7 @@ function createAddPhotoModal() {
   formFieldsDiv.appendChild(editModalAddPhotoFormCategoryInput)
 
   const validateButton = document.createElement('button')
-  validateButton.id = 'valider-add-photo-button'
+  validateButton.id = 'edit-add-photo-button'
   validateButton.innerText = 'Valider'
   editModalAddPhotoForm.appendChild(validateButton)
 
