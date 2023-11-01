@@ -1,3 +1,5 @@
+console.log('gallery.js is being executed')
+
 const categoryButtonsDiv = document.querySelector('#category-buttons')
 
 if (localStorage.getItem('token')) {
@@ -20,7 +22,7 @@ fetch(apiEndpointCategories)
     categories.forEach((category) => {
       let button = document.createElement('button')
       button.textContent = category.name
-      button.setAttribute('data-category-id', category.id.toString())
+      button.setAttribute('data-category-id', category.id.toString()) // Using ID directly
       categoryButtonsDiv.appendChild(button)
     })
 
@@ -50,7 +52,7 @@ fetch(apiEndpointCategories)
   })
 
 function displayData(filteredData, container) {
-  const galleryDiv = document.querySelector('.gallery')
+  const galleryDiv = container || document.querySelector('.gallery')
   galleryDiv.innerHTML = ''
   filteredData.forEach((item) => {
     let figure = document.createElement('figure')
@@ -68,3 +70,5 @@ function displayData(filteredData, container) {
     galleryDiv.appendChild(figure)
   })
 }
+
+console.log('gallery.js has been executed')

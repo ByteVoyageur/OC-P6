@@ -50,7 +50,7 @@ fetch(apiEndpointCategories)
   })
 
 function displayData(filteredData, container) {
-  const galleryDiv = document.querySelector('.gallery')
+  const galleryDiv = container || document.querySelector('.gallery')
   galleryDiv.innerHTML = ''
   filteredData.forEach((item) => {
     let figure = document.createElement('figure')

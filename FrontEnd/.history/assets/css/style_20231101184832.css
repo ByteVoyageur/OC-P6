@@ -231,18 +231,10 @@ li:hover {
   display: none;
 }
 
-#portfolio-header i.show {
-  display: block;
-}
-
 #editGalleryButton {
   display: none;
   border: none;
   background-color: transparent;
-}
-
-#editGalleryButton.show {
-  display: block;
 }
 
 #category-buttons {
@@ -334,6 +326,14 @@ li:hover {
 }
 
 #modalOverlay.show {
+  display: block;
+}
+
+#editGalleryButton {
+  display: none;
+}
+
+#editGalleryButton.show {
   display: block;
 }
 

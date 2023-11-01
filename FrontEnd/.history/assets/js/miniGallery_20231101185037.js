@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function () {
   if (localStorage.getItem('token')) {
     const editGalleryButton = document.getElementById('editGalleryButton')
     const editModeIndicator = document.getElementById('editModeIndicator')
-    const editIcon = document.getElementById('editIcon')
+    const editIcon = cocument.getElementById('editIcon')
 
     editGalleryButton.classList.add('show')
     editGalleryButton.addEventListener('click', showModal)
