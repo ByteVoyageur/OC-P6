@@ -39,4 +39,3 @@ loginForm.addEventListener('submit', function (event) {
       console.error('Error during login', error)
     })
 })
-console.log('login.js has been executed')

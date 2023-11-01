@@ -1,11 +1,10 @@
-console.log('gallery.js is being executed')
-
 const categoryButtonsDiv = document.querySelector('#category-buttons')
-
 if (localStorage.getItem('token')) {
+  // If the user is logged in, hide the #category-buttons div
   categoryButtonsDiv.style.display = 'none'
 }
 
+let categoryMap = {}
 const apiEndpointWorks = 'http://localhost:5678/api/works'
 const apiEndpointCategories = 'http://localhost:5678/api/categories'
 let data
@@ -13,15 +12,20 @@ let data
 fetch(apiEndpointCategories)
   .then((response) => response.json())
   .then((categories) => {
+    categoryMap['tous'] = null // Add the "Tous" category
+    categories.forEach((category) => {
+      categoryMap[category.name.toLowerCase()] = category.id
+    })
+
     // Add "Tous" category to the beginning of the categories list
-    categories.unshift({ name: 'Tous', id: null })
+    categories.unshift({ name: 'Tous' })
 
     categories.forEach((category) => {
+      const categoryButtonsDiv = document.querySelector('#category-buttons')
+      console.log(categoryButtonsDiv)
       let button = document.createElement('button')
       button.textContent = category.name
-
-      // Using ID directly from the API
-      button.setAttribute('data-category-id', category.id)
+      button.setAttribute('data-category', category.name.toLowerCase())
       categoryButtonsDiv.appendChild(button)
     })
 
@@ -36,12 +40,11 @@ fetch(apiEndpointCategories)
     const buttons = document.querySelectorAll('#category-buttons button')
     buttons.forEach((button) => {
       button.addEventListener('click', () => {
-        const categoryId = button.getAttribute('data-category-id')
-
+        const category = button.getAttribute('data-category')
         const filtered =
-          categoryId === 'null'
+          category === 'tous'
             ? data
-            : data.filter((item) => item.categoryId.toString() === categoryId)
+            : data.filter((item) => item.categoryId === categoryMap[category])
         displayData(filtered)
       })
     })
@@ -51,6 +54,7 @@ fetch(apiEndpointCategories)
   })
 
 function displayData(filteredData, container) {
+  console.log('displayData called')
   const galleryDiv = container || document.querySelector('.gallery')
   galleryDiv.innerHTML = ''
   filteredData.forEach((item) => {
@@ -69,5 +73,3 @@ function displayData(filteredData, container) {
     galleryDiv.appendChild(figure)
   })
 }
-
-console.log('gallery.js has been executed')

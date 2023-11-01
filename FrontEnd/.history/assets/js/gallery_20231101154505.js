@@ -38,6 +38,7 @@ fetch(apiEndpointCategories)
       button.addEventListener('click', () => {
         const categoryId = button.getAttribute('data-category-id')
 
+        // Modified filtering logic
         const filtered =
           categoryId === 'null'
             ? data

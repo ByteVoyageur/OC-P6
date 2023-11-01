@@ -19,9 +19,7 @@ fetch(apiEndpointCategories)
     categories.forEach((category) => {
       let button = document.createElement('button')
       button.textContent = category.name
-
-      // Using ID directly from the API
-      button.setAttribute('data-category-id', category.id)
+      button.setAttribute('data-category-id', category.id) // Using ID directly
       categoryButtonsDiv.appendChild(button)
     })
 
@@ -37,11 +35,10 @@ fetch(apiEndpointCategories)
     buttons.forEach((button) => {
       button.addEventListener('click', () => {
         const categoryId = button.getAttribute('data-category-id')
-
         const filtered =
-          categoryId === 'null'
+          categoryId === 'tous'
             ? data
-            : data.filter((item) => item.categoryId.toString() === categoryId)
+            : data.filter((item) => item.categoryId === categoryId)
         displayData(filtered)
       })
     })

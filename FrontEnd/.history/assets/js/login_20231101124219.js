@@ -1,4 +1,4 @@
-console.log('login.js is being executed')
+document.addEventListener('DOMContentLoaded', function () {
 const loginForm = document.getElementById('login-page-form')
 
 loginForm.addEventListener('submit', function (event) {
@@ -39,4 +39,4 @@ loginForm.addEventListener('submit', function (event) {
       console.error('Error during login', error)
     })
 })
-console.log('login.js has been executed')
+)}
