@@ -58,7 +58,7 @@ function displayData(filteredData, container) {
     let img = document.createElement('img')
     img.src = item.imageUrl
     img.alt = item.title
-    img.classList.add('clickable-image')
+    img.classList.add('clickable')
 
     let figcaption = document.createElement('figcaption')
     figcaption.textContent = item.title
@@ -67,8 +67,8 @@ function displayData(filteredData, container) {
     figure.appendChild(figcaption)
 
     galleryDiv.appendChild(figure)
+
     img.addEventListener('click', () => {
-      img.classList.toggle('clicked') // Toggle 'clicked' class on click
-    })
+      img.classList.toggle('clicked')
   })
 }
