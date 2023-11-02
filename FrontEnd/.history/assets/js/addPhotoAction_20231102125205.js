@@ -59,7 +59,6 @@ function initializeAddPhotoModalLogic() {
       })
       .then((data) => {
         alert('Photo added successfully!')
-        location.reload()
       })
       .catch((error) => {
         alert('There was a problem adding the photo.')

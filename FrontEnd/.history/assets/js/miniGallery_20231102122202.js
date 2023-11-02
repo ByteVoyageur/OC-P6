@@ -128,8 +128,6 @@ function handleDeleteClick(event) {
       .then((response) => {
         if (response.ok) {
           event.target.parentElement.remove()
-          alert('Photo deleted successfully.')
-          location.reload()
         } else {
           console.error('Failed to delete photo.')
         }

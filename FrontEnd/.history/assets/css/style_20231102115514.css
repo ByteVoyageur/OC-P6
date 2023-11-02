@@ -136,16 +136,12 @@ body {
 }
 .edit-mode-indicator {
   display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
   background-color: black;
   color: white;
   width: 100%;
   text-align: center;
   padding: 10px 0;
   font-size: 16px;
-  z-index: 1000;
 }
 
 .edit-mode-indicator.show {
@@ -261,7 +257,6 @@ li:hover {
   display: none;
   border: none;
   background-color: transparent;
-  cursor: pointer;
 }
 
 #editGalleryButton.show {
@@ -332,7 +327,6 @@ li:hover {
 #contact input {
   height: 50px;
   font-size: 1.2em;
-  cursor: pointer;
 }
 
 #contact label {

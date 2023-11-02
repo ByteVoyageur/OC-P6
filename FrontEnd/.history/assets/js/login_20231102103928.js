@@ -40,4 +40,15 @@ loginForm.addEventListener('submit', function (event) {
     })
 })
 
+if (localStorage.getItem('token')) {
+  const editGalleryButton = document.getElementById('editGalleryButton')
+  const editModeIndicator = document.getElementById('editModeIndicator')
+  const editIcon = document.getElementById('editIcon')
+
+  editGalleryButton.classList.add('show')
+  editGalleryButton.addEventListener('click', showModal)
+  editModeIndicator.classList.add('show')
+  editIcon.classList.add('show')
+}
+
 console.log('login.js has been executed')

@@ -13,23 +13,22 @@
 	<meta name="description" content="">
 	<link rel="stylesheet" href="./assets/css/style.css">
 	<link rel="stylesheet" href="./assets/css/login.css">
-	<link rel="stylesheet" href="./assets/css/modal.css">
 </head>
 
-
-
 <body>
-
+	<div class="edit-mode-indicator" id="editModeIndicator">
+		<i class="far fa-pen-to-square"></i>
+		<span>Mode edition</span>
+	</div>
 	<header>
 		<h1>Sophie Bluel <span>Architecte d'inteérieur</span></h1>
 		<nav>
 			<ul>
-				<li><a href="#portfolio">projets</a></li>
-				<li><a href="#contact">contact</a></li>
+				<li>projets</li>
+				<li>contact</li>
 				<li><a href="login.html">login</a></li>
 
-				<li><a href="https://www.instagram.com" target="_blank"><img src="./assets/icons/instagram.png"
-							alt="Instagram"></a></li>
+				<li><img src="./assets/icons/instagram.png" alt="Instagram"></li>
 			</ul>
 		</nav>
 	</header>
@@ -64,7 +63,7 @@
 		<section id="contact">
 			<h2>Contact</h2>
 			<p>Vous avez un projet ? Discutons-en !</p>
-			<form action="#" method="post" onsubmit="return false;">
+			<form action="#" method="post">
 				<label for="name">Nom</label>
 				<input type="text" name="name" id="name">
 				<label for="email">Email</label>

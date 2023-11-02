@@ -136,16 +136,12 @@ body {
 }
 .edit-mode-indicator {
   display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
   background-color: black;
   color: white;
   width: 100%;
   text-align: center;
   padding: 10px 0;
   font-size: 16px;
-  z-index: 1000;
 }
 
 .edit-mode-indicator.show {
@@ -200,26 +196,17 @@ a {
 nav ul li a {
   color: black;
 }
-nav ul li img {
-  width: 20px;
-  height: 20px;
-  padding-top: 3px;
-  cursor: pointer;
-}
 
 li:hover {
   color: #b1663c;
 }
-
 #introduction {
   display: flex;
   align-items: center;
 }
-
 #introduction figure {
   flex: 1;
 }
-
 #introduction img {
   display: block;
   margin: auto;
@@ -261,7 +248,6 @@ li:hover {
   display: none;
   border: none;
   background-color: transparent;
-  cursor: pointer;
 }
 
 #editGalleryButton.show {
@@ -332,7 +318,6 @@ li:hover {
 #contact input {
   height: 50px;
   font-size: 1.2em;
-  cursor: pointer;
 }
 
 #contact label {

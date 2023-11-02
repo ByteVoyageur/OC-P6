@@ -1,37 +1,22 @@
 if (localStorage.getItem('token')) {
   const editGalleryButton = document.getElementById('editGalleryButton')
+  const editModeIndicator = document.getElementById('editModeIndicator')
   const editIcon = document.getElementById('editIcon')
   const loginLink = document.querySelector('a[href="login.html"]')
 
-  // Assuming showModal is a function defined elsewhere that you want to call
   editGalleryButton.classList.add('show')
   editGalleryButton.addEventListener('click', showModal)
+  editModeIndicator.classList.add('show')
+  editIcon.classList.add('show')
 
-  // Change login link to logout
+  // change login link to logout
   loginLink.textContent = 'logout'
   loginLink.href = '#'
-  loginLink.addEventListener('click', function () {
+
+  loginLink.addEventListener('click', () => {
     localStorage.removeItem('token')
-    window.location.reload() // or redirect to another page
+    window.location.reload()
   })
-
-  // Add edit mode indicator if not present
-  if (!document.getElementById('editModeIndicator')) {
-    var editModeIndicator = document.createElement('div')
-    editModeIndicator.className = 'edit-mode-indicator'
-    editModeIndicator.id = 'editModeIndicator'
-    editModeIndicator.innerHTML =
-      '<i class="far fa-pen-to-square"></i><span>Mode edition</span>'
-
-    // Add the indicator to the top of the body
-    document.body.insertBefore(editModeIndicator, document.body.firstChild)
-
-    // Now reveal the editModeIndicator
-    editModeIndicator.classList.add('show')
-  }
-
-  // Show the edit icon
-  editIcon.classList.add('show')
 }
 
 function showModal() {
@@ -128,8 +113,6 @@ function handleDeleteClick(event) {
       .then((response) => {
         if (response.ok) {
           event.target.parentElement.remove()
-          alert('Photo deleted successfully.')
-          location.reload()
         } else {
           console.error('Failed to delete photo.')
         }
