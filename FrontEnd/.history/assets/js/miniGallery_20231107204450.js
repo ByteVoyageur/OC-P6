@@ -76,7 +76,7 @@ function showModal() {
     modalOverlay.classList.add('show')
   }
 
-  fetch(apiEndpointWorks)
+  fetch('http://localhost:5678/api/works')
     .then((response) => response.json())
     .then((data) => {
       const miniGalleryDiv = document.querySelector('.mini-gallery')
@@ -89,7 +89,6 @@ function showModal() {
 }
 
 function displayMiniGallery(data, container) {
-  // Use the provided container for the gallery, or create a new div if none is provided.
   const miniGalleryDiv = container || document.createElement('div')
   miniGalleryDiv.className = 'mini-gallery'
 
@@ -115,14 +114,11 @@ function displayMiniGallery(data, container) {
 
 function handleDeleteClick(event) {
   const photoId = event.target.dataset.id
-  if (!photoId) {
-    console.error('Error: The photo ID is missing.')
-    return
-  }
+  if (!photoId) return
 
   const confirmed = confirm('Are you sure you want to delete this photo?')
   if (confirmed) {
-    fetch(`${apiEndpointWorks}/${photoId}`, {
+    fetch(`http://localhost:5678/api/works/${photoId}`, {
       method: 'DELETE',
       headers: {
         Authorization: 'Bearer ' + localStorage.getItem('token'),

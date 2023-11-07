@@ -12,7 +12,7 @@ loginForm.addEventListener('submit', function (event) {
     password: password,
   }
 
-  fetch(apiEndpointUsers, {
+  fetch('http://localhost:5678/api/users/login', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -38,10 +38,6 @@ loginForm.addEventListener('submit', function (event) {
     })
     .catch((error) => {
       console.error('Error during login', error)
-      const errorMessageDiv = document.getElementById('error-message')
-      errorMessageDiv.textContent =
-        'Cannot connect to the server. Please check your network connection and try again.'
-      errorMessageDiv.style.display = 'block'
     })
 })
 

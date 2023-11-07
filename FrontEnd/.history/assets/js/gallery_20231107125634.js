@@ -7,7 +7,7 @@ if (localStorage.getItem('token')) {
 //faciliter la modification des adresses lors du déploiement sur le serveur.
 const apiEndpointWorks = 'http://localhost:5678/api/works'
 const apiEndpointCategories = 'http://localhost:5678/api/categories'
-const apiEndpointUsers = 'http://localhost:5678/api/users/login'
+let data
 
 fetch(apiEndpointCategories)
   .then((response) => response.json())

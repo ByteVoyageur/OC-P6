@@ -12,7 +12,7 @@ loginForm.addEventListener('submit', function (event) {
     password: password,
   }
 
-  fetch(apiEndpointUsers, {
+  fetch('http://localhost:5678/api/users/login', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

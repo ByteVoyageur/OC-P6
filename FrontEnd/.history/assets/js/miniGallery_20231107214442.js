@@ -115,10 +115,7 @@ function displayMiniGallery(data, container) {
 
 function handleDeleteClick(event) {
   const photoId = event.target.dataset.id
-  if (!photoId) {
-    console.error('Error: The photo ID is missing.')
-    return
-  }
+  if (!photoId) return
 
   const confirmed = confirm('Are you sure you want to delete this photo?')
   if (confirmed) {
