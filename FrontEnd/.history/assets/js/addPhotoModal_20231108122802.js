@@ -1,3 +1,17 @@
+async function fetchCategories() {
+  try {
+    const response = await fetch(apiEndpointCategories)
+    if (!response.ok) {
+      throw new Error('Network response was not ok')
+    }
+    const categories = await response.json()
+    return categories
+  } catch (error) {
+    console.error('There was a problem fetching the categories:', error)
+    return []
+  }
+}
+
 function createAddPhotoModal() {
   const existingModal = document.getElementById('editModalOverlay')
   if (existingModal) {
@@ -106,6 +120,7 @@ function createAddPhotoModal() {
   editModalAddPhotoFormCategoryInput.id = 'photo-category'
   editModalAddPhotoFormCategoryInput.required = true
 
+  // Fetch categories from the API and populate the dropdown
   if (window.categoriesData && window.categoriesData.length > 0) {
     window.categoriesData.forEach((category) => {
       const option = document.createElement('option')
@@ -114,20 +129,15 @@ function createAddPhotoModal() {
       editModalAddPhotoFormCategoryInput.appendChild(option)
     })
   } else {
-    fetch(apiEndpointCategories)
-      .then((response) => response.json())
-      .then((categories) => {
-        window.categoriesData = categories
-        categories.forEach((category) => {
-          const option = document.createElement('option')
-          option.value = category.id
-          option.textContent = category.name
-          editModalAddPhotoFormCategoryInput.appendChild(option)
-        })
+    fetchCategories().then((categories) => {
+      window.categoriesData = categories
+      categories.forEach((category) => {
+        const option = document.createElement('option')
+        option.value = category.id
+        option.textContent = category.name
+        editModalAddPhotoFormCategoryInput.appendChild(option)
       })
-      .catch((error) => {
-        console.error('Error fetching data:', error)
-      })
+    })
   }
 
   editModalAddPhotoForm.appendChild(uploadDiv)
@@ -158,5 +168,13 @@ function createAddPhotoModal() {
 
   document.body.appendChild(editModal)
 
+  editModalAddPhotoButton.addEventListener('change', function (e) {
+    var fileName = e.target.value.split('\\').pop()
+    if (fileName) {
+      customUploadLabel.textContent = fileName
+    } else {
+      customUploadLabel.textContent = '+ Ajout'
+    }
+  })
   initializeAddPhotoModalLogic()
 }

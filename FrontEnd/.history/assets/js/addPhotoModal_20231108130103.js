@@ -158,5 +158,6 @@ function createAddPhotoModal() {
 
   document.body.appendChild(editModal)
 
+  c
   initializeAddPhotoModalLogic()
 }

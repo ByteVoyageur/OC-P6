@@ -158,5 +158,13 @@ function createAddPhotoModal() {
 
   document.body.appendChild(editModal)
 
+  // editModalAddPhotoButton.addEventListener('change', function (e) {
+  //   const fileName = e.target.value.split('\\').pop()
+  //   if (fileName) {
+  //     customUploadLabel.textContent = fileName
+  //   } else {
+  //     customUploadLabel.textContent = '+ Ajout'
+  //   }
+  // })
   initializeAddPhotoModalLogic()
 }
