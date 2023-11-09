@@ -131,8 +131,8 @@ function handleDeleteClick(event) {
       .then((response) => {
         if (response.ok) {
           event.target.parentElement.remove()
-          updateMainGallery(photoId)
           alert('Photo deleted successfully.')
+          location.reload()
         } else {
           alert('Failed to delete photo.')
           console.error('Failed to delete photo.')
@@ -140,19 +140,9 @@ function handleDeleteClick(event) {
       })
       .catch((error) => {
         alert('unknown error')
-        console.error('net error', error)
+        console.error('Error:', error)
       })
   }
 }
 
-function updateMainGallery(photoId) {
-  const galleryDiv = document.querySelector('.gallery')
-  const images = galleryDiv.querySelectorAll('img')
-
-  for (const img of images) {
-    if (img.src.includes(photoId)) {
-      img.parentElement.remove()
-      break
-    }
-  }
-}
+console.log('galleryManager.js is loaded')

@@ -66,7 +66,6 @@ function initializeAddPhotoModalLogic() {
       }
 
       const data = await response.json()
-      updateGalleryWithNewPhoto(data)
       alert('Photo added successfully!')
     } catch (error) {
       alert('There was a problem adding the photo.')
@@ -77,23 +76,4 @@ function initializeAddPhotoModalLogic() {
   addPhotoButton.addEventListener('click', fileInputClickHandler)
   fileInput.addEventListener('change', fileInputChangeHandler)
   submitButton.addEventListener('click', submitButtonClickHandler)
-}
-
-function updateGalleryWithNewPhoto(photo) {
-  const galleryDiv = document.querySelector('.gallery')
-
-  let figure = document.createElement('figure')
-
-  let img = document.createElement('img')
-  img.src = photo.imageUrl
-  img.alt = photo.title
-  img.classList.add('clickable-image')
-
-  let figcaption = document.createElement('figcaption')
-  figcaption.textContent = photo.title
-
-  figure.appendChild(img)
-  figure.appendChild(figcaption)
-
-  galleryDiv.appendChild(figure)
 }

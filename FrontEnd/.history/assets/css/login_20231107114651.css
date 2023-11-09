@@ -225,11 +225,6 @@ li:hover {
   margin-bottom: 30px;
 }
 
-#error-message {
-  color: red;
-  display: none;
-}
-
 .wrapper {
   position: relative;
   min-height: calc(100vh - 50px);

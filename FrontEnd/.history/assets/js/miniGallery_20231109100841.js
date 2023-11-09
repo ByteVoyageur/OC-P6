@@ -131,8 +131,8 @@ function handleDeleteClick(event) {
       .then((response) => {
         if (response.ok) {
           event.target.parentElement.remove()
-          updateMainGallery(photoId)
           alert('Photo deleted successfully.')
+          updateMainGallery(photoId)
         } else {
           alert('Failed to delete photo.')
           console.error('Failed to delete photo.')
