@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Sophie Bluel - Architecte d'intérieur</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap"
+        rel="stylesheet">
+    <meta name="description" content="">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <link rel="stylesheet" href="/FrontEnd/assets/css/style.css">
+    <link rel="stylesheet" href="/FrontEnd/assets/css/login.css">
+    >
+</head>
+
+<body>
+    <div class="wrapper">
+        <header>
+            <h1>Sophie Bluel <span>Architecte d&apos;intérieur</span></h1>
+            <nav>
+                <ul>
+                    <li>projets</li>
+                    <li>contact</li>
+                    <li>login</li>
+                    <li><img src="/FrontEnd/assets/icons/instagram.png" alt="Instagram"></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <section id="login-section">
+                <div class="login-content">
+                    <h2>Login</h2>
+                    <form id="login-page-form">
+                        <div class="login-field-group">
+                            <div id="error-message" style="color: red; display: none;"></div>
+                            <!-- Error message placeholder -->
+
+                            <label for="user-email">E-mail</label>
+                            <input type="text" id="user-email" name="username" required>
+                        </div>
+                        <div class="login-field-group">
+                            <label for="user-password">Mot de passe</label>
+                            <input type="password" id="user-password" name="password" required>
+                        </div>
+                        <div class="login-submit-button">
+                            <button type="submit">Se connecter</button>
+                        </div>
+                    </form>
+                    <a id="forgot-password-link">Mot de passe oublié</a>
+                </div>
+            </section>
+        </main>
+    </div>
+    <div class="footer-push"></div>
+    <footer>
+        <nav>
+            <ul>
+                <li>Mentions Légales</li>
+            </ul>
+        </nav>
+    </footer>
+    <script src="./assets/js/gallery.js"></script>
+    <script src="./assets/js/login.js"></script>
+    <script src="./assets/js/galleryManager.js"></script>
+    <script src="./assets/js/editPhoto.js"></script>
+</body>
