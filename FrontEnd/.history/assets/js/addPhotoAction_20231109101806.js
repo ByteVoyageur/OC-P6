@@ -82,16 +82,14 @@ function initializeAddPhotoModalLogic() {
 function updateGalleryWithNewPhoto(photo) {
   const galleryDiv = document.querySelector('.gallery')
 
-  const figure = document.createElement('figure')
-  figure.id = 'figure-' + photo.id
+  let figure = document.createElement('figure')
 
-  const img = document.createElement('img')
+  let img = document.createElement('img')
   img.src = photo.imageUrl
   img.alt = photo.title
   img.classList.add('clickable-image')
-  img.id = 'image-' + photo.id
 
-  const figcaption = document.createElement('figcaption')
+  let figcaption = document.createElement('figcaption')
   figcaption.textContent = photo.title
 
   figure.appendChild(img)

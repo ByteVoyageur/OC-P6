@@ -63,7 +63,6 @@ function displayData(filteredData, container) {
     const img = document.createElement('img')
     img.src = item.imageUrl
     img.alt = item.title
-    img.id = 'image-' + item.id
     img.classList.add('clickable-image')
 
     const figcaption = document.createElement('figcaption')

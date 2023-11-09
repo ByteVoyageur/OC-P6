@@ -147,9 +147,9 @@ function handleDeleteClick(event) {
 
 function updateMainGallery(photoId) {
   const galleryDiv = document.querySelector('.gallery')
-  const figureToRemove = galleryDiv.querySelector('#figure-' + photoId)
+  const images = galleryDiv.querySelectorAll('img[data-id]"' + photoId + '"]')
 
-  if (figureToRemove) {
-    figureToRemove.remove()
+  for (const img of images) {
+    img.parentElement.remove()
   }
 }
